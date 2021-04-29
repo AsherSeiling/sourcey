@@ -1,7 +1,7 @@
 import os
 import  sys
 # import modules
-
+import modules.initilizeNew as initn
 # Command help
 commands = [
 	"sourcey -h",
@@ -20,8 +20,12 @@ except:
 
 # Main Function
 def main():
-	pass
-
+	command = sys.argv
+	if command[1].lower() == "init":
+		if ".sourcey" not in os.listdir():
+			initn.initNew()
+		else:
+			print("Repo Already initilized in this directory")
 # Checks to run the code
 if runcode == True:
 	main()
