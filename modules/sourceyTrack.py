@@ -14,17 +14,18 @@ mainJsondata = loadJSON(".sourcey/config.json")
 BranchJson = loadJSON(f".sourcey/branches/{mainJsondata['currentBranch']}/config.json")
 
 def find_differences():
-    ignore = [".sourceyignore"]
+    ignore = [".sourcey"]
     referencelastcommit = os.listdir(f".sourcey/branches/{mainJsondata['currentBranch']}/commits/{BranchJson['commitsnum']}")
     refernceCurrentDataTemp = os.listdir()
     refernceCurrentData = []
-    if ".sourceyignore" in refernceCurrentData:
+    if ".sourceyignore" in refernceCurrentDataTemp:
         ignoretemp = open(".sourceyignore", "r").readlines()
         for i in ignoretemp:
             ignore.append(i.split("\n")[0])
-    for items in refernceCurrentData:
-        if items not in refernceCurrentDataTemp:
+    for items in refernceCurrentDataTemp:
+        if items not in ignore:
             refernceCurrentData.append(items)
+    print(refernceCurrentData)
     # Find the Changes
     change_log = {
         "changes" : [
@@ -34,11 +35,11 @@ def find_differences():
         "deletion" : []
     }
     changes_possible = []
-    for i in range(len(refernceCurrentData)):
-        if refernceCurrentData[i] in referencelastcommit:
-            changes_possible.append(refernceCurrentData[i])
-        elif refernceCurrentData[i] not in referencelastcommit:
-            change_log["creation"].append(refernceCurrentData[i])
+    for i in refernceCurrentData:
+        if i in referencelastcommit:
+            changes_possible.append(i)
+        elif i not in referencelastcommit:
+            change_log["creation"].append(i)
     for i in referencelastcommit:
         if i not in refernceCurrentData:
             change_log["deletion"].append(i)
@@ -60,11 +61,11 @@ def sourceyTrack():
     differencesDict = find_differences()
     dispChangesBuffer = ""
     for i in differencesDict["changes"]:
-        dispChangesBuffer += f"  File: {i["file"]} | Changes percent: {i["changePercent"]}%\n"
-    dispChangesBuffer += "Creation:"
+        dispChangesBuffer += f"  File: {i['file']} | Changes percent: {i['changePercent']}%\n"
+    dispChangesBuffer += "Creation:\n"
     for i in differencesDict["creation"]:
         dispChangesBuffer += f"  File: {i}\n"
-    dispChangesBuffer += "Deleted:"
+    dispChangesBuffer += "Deleted:\n"
     for i in differencesDict["deletion"]:
         dispChangesBuffer += f"  File: {i}\n"
     disp_statments = [
