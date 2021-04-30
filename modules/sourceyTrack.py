@@ -76,5 +76,3 @@ def sourceyTrack():
         f"{dispChangesBuffer}"
     ]
     print(*disp_statments, sep="\n")
-
-sourceyTrack()

@@ -29,7 +29,10 @@ def main():
 		else:
 			print("Repo Already initilized in this directory")
 	if command[1].lower() == "track":
-		st.sourceyTrack()
+		if ".sourcey" in os.listdir():
+			st.sourceyTrack()
+		else:
+			print("Repo not initilized")
 
 # Checks to run the code
 if runcode == True:
