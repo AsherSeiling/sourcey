@@ -2,10 +2,12 @@ import os
 import  sys
 # import modules
 import modules.initilizeNew as initn
+import modules.sourceyTrack as st
 # Command help
 commands = [
 	"sourcey -h",
-	"sourcey init"
+	"sourcey init",
+	"sourcey track"
 ]
 # Get args
 runcode = True
@@ -26,6 +28,9 @@ def main():
 			initn.initNew()
 		else:
 			print("Repo Already initilized in this directory")
+	if command[1].lower() == "track":
+		st.sourceyTrack()
+
 # Checks to run the code
 if runcode == True:
 	main()

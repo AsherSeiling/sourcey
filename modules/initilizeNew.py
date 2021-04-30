@@ -16,7 +16,8 @@ def initNew():
 		os.system(i)
 	json_template_main_config = {
 		"creation_date" : f"{datetime.datetime.now()}",
-		"branches" : ["master"]
+		"branches" : ["master"],
+		"currentBranch" : "master"
 	}
 	jsondata = json.dumps(json_template_main_config, indent=4)
 	jsonFile = open("config.json", "w+")
