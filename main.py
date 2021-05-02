@@ -3,17 +3,21 @@ import  sys
 # import modules
 import modules.initilizeNew as initn
 import modules.sourceyTrack as st
+import modules.commit as cmt
 # Command help
 commands = [
 	"sourcey -h",
 	"sourcey init",
-	"sourcey track"
+	"sourcey track",
+	"sourcey commit"
 ]
 # Get args
 runcode = True
 try:
 	if sys.argv[1].lower() == "-h":
 		runcode = False
+		for i in commands:
+			print(i)
 	if len(sys.argv) == 1:
 		runcode = False
 except:
@@ -33,6 +37,11 @@ def main():
 			st.sourceyTrack()
 		else:
 			print("Repo not initilized")
+	if command[1].lower() == "commit":
+		if ".sourcey" in os.listdir():
+			cmt.commitChanges(command[2])
+		else:
+			print("Repo not ininitialized")
 
 # Checks to run the code
 if runcode == True:

@@ -10,3 +10,11 @@ chmod -h config.sh
 ```
 sourcey init
 ```
+### Track the changes made since the last commit
+```
+sourcey track
+```
+### Commit a version of the repo
+```
+sourcey commit
+```

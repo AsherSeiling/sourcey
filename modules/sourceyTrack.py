@@ -2,26 +2,17 @@ import os
 import json
 import sys
 import math
-
-# Functions for the code
-# Loads Json data
-def loadJSON(dir):
-    jsonMain = open(dir, "r").read()
-    jsonMain = json.loads(jsonMain)
-    return jsonMain
+import modules.loadJson as LJ
+import modules.readSourceyignore as rsig
 # Load Json Data
-mainJsondata = loadJSON(".sourcey/config.json")
-BranchJson = loadJSON(f".sourcey/branches/{mainJsondata['currentBranch']}/config.json")
+mainJsondata = LJ.loadJSON(".sourcey/config.json")
+BranchJson = LJ.loadJSON(f".sourcey/branches/{mainJsondata['currentBranch']}/config.json")
 
 def find_differences():
-    ignore = [".sourcey"]
+    ignore = rsig.readIgnore()
     referencelastcommit = os.listdir(f".sourcey/branches/{mainJsondata['currentBranch']}/commits/{BranchJson['commitsnum']}")
     refernceCurrentDataTemp = os.listdir()
     refernceCurrentData = []
-    if ".sourceyignore" in refernceCurrentDataTemp:
-        ignoretemp = open(".sourceyignore", "r").readlines()
-        for i in ignoretemp:
-            ignore.append(i.split("\n")[0])
     for items in refernceCurrentDataTemp:
         if items not in ignore:
             refernceCurrentData.append(items)
