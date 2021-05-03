@@ -36,17 +36,18 @@ def find_differences():
             change_log["deletion"].append(i)
     # Find the changes_possible
     for i in changes_possible:
-        changes1 = open(i, "r").readlines()
-        changes2 = open(f".sourcey/branches/{mainJsondata['currentBranch']}/commits/{BranchJson['commitsnum']}/{i}")
-        changes_percent = 0
-        if changes1 != changes2:
-            lenchanges1 = len(changes1)
-            lenchanges2 = len(changes2)
-            changes_percent = ((lenchanges2 / lenchanges1) - math.floor(lenchanges2 / lenchanges1)) * 100
-            change_log["changes"].append({"file" : f"{i}", "changePercent" : f"{changes_percent}"})
+        if os.path.isdir(i) == False:
+            changes1 = open(i, "r").readlines()
+            changes2 = open(f".sourcey/branches/{mainJsondata['currentBranch']}/commits/{BranchJson['commitsnum']}/{i}").readlines()
+            changes_percent = 0
+            if changes1 != changes2:
+                lenchanges1 = len(changes1)
+                lenchanges2 = len(changes2)
+                changes_percent = ((lenchanges2 / lenchanges1) - math.floor(lenchanges2 / lenchanges1)) * 100
+                change_log["changes"].append({"file" : f"{i}", "changePercent" : f"{changes_percent}"})
     return change_log
 
-# Main Disp function
+# Main Disp functions
 def sourceyTrack():
     print("Tracking...")
     differencesDict = find_differences()
