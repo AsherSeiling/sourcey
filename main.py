@@ -9,7 +9,7 @@ commands = [
 	"sourcey -h",
 	"sourcey init",
 	"sourcey track",
-	"sourcey commit"
+	"sourcey commit <commit name>"
 ]
 # Get args
 runcode = True

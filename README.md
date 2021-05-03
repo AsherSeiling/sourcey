@@ -16,5 +16,5 @@ sourcey track
 ```
 ### Commit a version of the repo
 ```
-sourcey commit
+sourcey commit <commit name>
 ```
