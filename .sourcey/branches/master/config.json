@@ -1,12 +1,17 @@
 {
-    "commitsnum": 1,
+    "commitsnum": 2,
     "commits": [
         {
             "id": "1",
             "name": "Inital Commit",
             "commitDate": "2021-04-29 17:00:04.415945"
+        },
+        {
+            "id": "2",
+            "name": "Test commit",
+            "commitDate": "2021-05-02 20:15:53.517496"
         }
     ],
     "fistCommit": "2021-04-29 17:00:04.415958",
-    "mostRecentCommit": "2021-04-29 17:00:04.415962"
+    "mostRecentCommit": "2021-05-02 20:15:53.517542"
 }
