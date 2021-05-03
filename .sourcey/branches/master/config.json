@@ -1,5 +1,5 @@
 {
-    "commitsnum": 2,
+    "commitsnum": 3,
     "commits": [
         {
             "id": "1",
@@ -10,8 +10,13 @@
             "id": "2",
             "name": "Test commit",
             "commitDate": "2021-05-02 20:15:53.517496"
+        },
+        {
+            "id": "3",
+            "name": "Added the logCommits feature",
+            "commitDate": "2021-05-03 17:19:09.791783"
         }
     ],
     "fistCommit": "2021-04-29 17:00:04.415958",
-    "mostRecentCommit": "2021-05-02 20:15:53.517542"
+    "mostRecentCommit": "2021-05-03 17:19:09.791821"
 }

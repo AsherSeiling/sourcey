@@ -18,3 +18,7 @@ sourcey track
 ```
 sourcey commit <commit name>
 ```
+### Log previous commits
+```
+sourcey log
+```
