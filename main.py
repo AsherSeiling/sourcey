@@ -4,12 +4,14 @@ import  sys
 import modules.initilizeNew as initn
 import modules.sourceyTrack as st
 import modules.commit as cmt
+import modules.logCommits as lgcmts
 # Command help
 commands = [
 	"sourcey -h",
 	"sourcey init",
 	"sourcey track",
-	"sourcey commit <commit name>"
+	"sourcey commit <commit name>",
+	"sourcey log"
 ]
 # Get args
 runcode = True
@@ -42,6 +44,11 @@ def main():
 			cmt.commitChanges(command[2])
 		else:
 			print("Repo not ininitialized")
+	if command[1].lower() == "log":
+		if ".sourcey" in os.listdir():
+			print(lgcmts.logCommits())
+		else:
+			print("Repo not initilized")
 
 # Checks to run the code
 if runcode == True:
