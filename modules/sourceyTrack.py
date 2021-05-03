@@ -43,7 +43,7 @@ def find_differences():
             if changes1 != changes2:
                 lenchanges1 = len(changes1)
                 lenchanges2 = len(changes2)
-                changes_percent = ((lenchanges2 / lenchanges1) - math.floor(lenchanges2 / lenchanges1)) * 100
+                changes_percent = 100 - (((lenchanges2 / lenchanges1) - math.floor(lenchanges2 / lenchanges1)) * 100)
                 change_log["changes"].append({"file" : f"{i}", "changePercent" : f"{changes_percent}"})
     return change_log
 
