@@ -51,5 +51,8 @@ def main():
 			print("Repo not initilized")
 
 # Checks to run the code
-if runcode == True:
-	main()
+try: 
+    if runcode == True:
+	    main()
+except:
+    print("Error: Command not found")
