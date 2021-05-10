@@ -7,7 +7,10 @@ try:
 	import modules.commit as cmt
 	import modules.logCommits as lgcmts
 except:
-	print("Sourcey configed")
+	if sys.argv[1] != "init":
+		print("Error: No command args try -h")
+	else:
+		print("Repo initilized")
 # Command help
 commands = [
 	"sourcey -h",
