@@ -1,5 +1,5 @@
 import os
-import  sys
+import sys
 # import modules
 try:
 	import modules.initilizeNew as initn
@@ -7,7 +7,7 @@ try:
 	import modules.commit as cmt
 	import modules.logCommits as lgcmts
 except:
-	if sys.argv[1] != "init":
+	if len(sys.argv) == 0:
 		print("Error: No command args try -h")
 	else:
 		print("Repo initilized")

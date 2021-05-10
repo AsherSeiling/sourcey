@@ -37,8 +37,8 @@ def find_differences():
     # Find the changes_possible
     for i in changes_possible:
         if os.path.isdir(i) == False:
-            changes1 = open(i, "r").readlines()
-            changes2 = open(f".sourcey/branches/{mainJsondata['currentBranch']}/commits/{BranchJson['commitsnum']}/{i}").readlines()
+            changes1 = open(i, "r").read()
+            changes2 = open(f".sourcey/branches/{mainJsondata['currentBranch']}/commits/{BranchJson['commitsnum']}/{i}").read()
             changes_percent = 0
             if changes1 != changes2:
                 lenchanges1 = len(changes1)

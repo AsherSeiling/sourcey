@@ -1,10 +1,16 @@
 import os
-import  sys
+import sys
 # import modules
-import modules.initilizeNew as initn
-import modules.sourceyTrack as st
-import modules.commit as cmt
-import modules.logCommits as lgcmts
+try:
+	import modules.initilizeNew as initn
+	import modules.sourceyTrack as st
+	import modules.commit as cmt
+	import modules.logCommits as lgcmts
+except:
+	if len(sys.argv) == 0:
+		print("Error: No command args try -h")
+	else:
+		print("Repo initilized")
 # Command help
 commands = [
 	"sourcey -h",
@@ -51,7 +57,7 @@ def main():
 			print("Repo not initilized")
 
 # Checks to run the code
-try: 
+try:
     if runcode == True:
 	    main()
 except:
