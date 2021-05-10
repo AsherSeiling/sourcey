@@ -1,5 +1,5 @@
 {
-    "commitsnum": 3,
+    "commitsnum": 4,
     "commits": [
         {
             "id": "1",
@@ -15,8 +15,13 @@
             "id": "3",
             "name": "Added the logCommits feature",
             "commitDate": "2021-05-03 17:19:09.791783"
+        },
+        {
+            "id": "4",
+            "name": "Added a try except block",
+            "commitDate": "2021-05-10 12:16:58.794187"
         }
     ],
     "fistCommit": "2021-04-29 17:00:04.415958",
-    "mostRecentCommit": "2021-05-03 17:19:09.791821"
+    "mostRecentCommit": "2021-05-10 12:16:58.794224"
 }
