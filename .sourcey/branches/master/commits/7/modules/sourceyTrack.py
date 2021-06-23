@@ -34,17 +34,25 @@ def find_differences():
     for i in referencelastcommit:
         if i not in refernceCurrentData:
             change_log["deletion"].append(i)
+    # Add sub dirs in the changes changes_possible
+    for i in changes_possible:
+        if os.path.isdir(i) == True:
+            for files in os.listdir(i):
+                changes_possible.append(f"{i}/{files}")
     # Find the changes_possible
     for i in changes_possible:
         if os.path.isdir(i) == False:
-            changes1 = open(i, "r").read()
-            changes2 = open(f".sourcey/branches/{mainJsondata['currentBranch']}/commits/{BranchJson['commitsnum']}/{i}").read()
-            changes_percent = 0
-            if changes1 != changes2:
-                lenchanges1 = len(changes1)
-                lenchanges2 = len(changes2)
-                changes_percent = 100 - (((lenchanges2 / lenchanges1) - math.floor(lenchanges2 / lenchanges1)) * 100)
-                change_log["changes"].append({"file" : f"{i}", "changePercent" : f"{changes_percent}"})
+            try:
+                changes1 = open(i, "r").read()
+                changes2 = open(f".sourcey/branches/{mainJsondata['currentBranch']}/commits/{BranchJson['commitsnum']}/{i}").read()
+                changes_percent = 0
+                if changes1 != changes2:
+                    lenchanges1 = len(changes1)
+                    lenchanges2 = len(changes2)
+                    changes_percent = 100 - (((lenchanges2 / lenchanges1) - math.floor(lenchanges2 / lenchanges1)) * 100)
+                    change_log["changes"].append({"file" : f"{i}", "changePercent" : f"{changes_percent}"})
+            except:
+                pass
     return change_log
 
 # Main Disp functions

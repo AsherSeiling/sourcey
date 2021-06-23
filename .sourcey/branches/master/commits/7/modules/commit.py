@@ -24,5 +24,6 @@ def commitChanges(argument1):
     branchConf2 = open(f".sourcey/branches/{mainConf['currentBranch']}/config.json", "w")
     branchConf2.write(branchConf1)
     branchConf2.close()
-    os.system(f"zip -r .sourcey/branches/{mainConf['currentBranch']}/commits/{branchConf['commitsnum'] - 1}.zip .sourcey/branches/{mainConf['currentBranch']}/commits/{branchConf['commitsnum'] - 1}")
-    os.system(f"rm -rf .sourcey/branches/{mainConf['currentBranch']}/commits/{branchConf['commitsnum'] - 1}")
+    os.chdir(f".sourcey/branches/{mainConf['currentBranch']}/commits/")
+    os.system(f"zip -r {branchConf['commitsnum'] - 1}.zip {branchConf['commitsnum'] - 1}")
+    os.system(f"rm -rf {branchConf['commitsnum'] - 1}")

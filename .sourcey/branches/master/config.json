@@ -1,5 +1,5 @@
 {
-    "commitsnum": 6,
+    "commitsnum": 7,
     "commits": [
         {
             "id": "1",
@@ -30,8 +30,13 @@
             "id": "6",
             "name": "Added some more exception handeling features",
             "commitDate": "2021-05-10 13:43:18.307947"
+        },
+        {
+            "id": "7",
+            "name": "test-commit-7",
+            "commitDate": "2021-06-23 15:01:38.523024"
         }
     ],
     "fistCommit": "2021-04-29 17:00:04.415958",
-    "mostRecentCommit": "2021-05-10 13:43:18.307983"
+    "mostRecentCommit": "2021-06-23 15:01:38.523065"
 }
